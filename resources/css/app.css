@@ -1,0 +1,7 @@
+@import '@spectre-org/spectre-css/dist/spectre.css';
+@import '@spectre-org/spectre-css/dist/spectre-exp.css';
+@import '@spectre-org/spectre-css/dist/spectre-icons.css';
+
+.card__fullheight {
+    height: 100%;
+}
