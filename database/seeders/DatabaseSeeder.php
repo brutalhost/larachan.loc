@@ -3,9 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\User;
+use Artisan;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,14 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
+        $this->call([
+            AdminUserSeeder::class,
+            UserSeeder::class,
+            AvatarSeeder::class,
+            PostSeeder::class,
+        ]);
 
-
-//         \App\Models\User::factory()->create([
-//             'name' => 'Test User',
-//             'email' => 'test@example.com',
-//             'password' => bcrypt('password'),
-//             'username' => 'test'
-//         ]);
+        Artisan::call('storage:remove-unused-avatars');
     }
 }

@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Services\MarkdownFormat;
 use DavidBadura\FakerMarkdownGenerator\FakerProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

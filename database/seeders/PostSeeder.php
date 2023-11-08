@@ -18,8 +18,6 @@ class PostSeeder extends Seeder
         // Find all users with 0 posts
         $users = User::has('posts', '=', 0)->get();
 
-        fake()->addProvider(FakerProvider::class);
-
         foreach ($users as $user) {
             $numPosts = rand(1, 4);
 
