@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Resources;
+namespace App\Http\Controllers;
 
-use App\Facades\Notification;
-use App\Http\Controllers\Controller;
-use App\Http\Middleware\ResourceOwner;
+use App\Facades\NotificationFacade;
 use App\Http\Requests\SearchRequest;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
@@ -44,10 +42,14 @@ class UserController extends Controller
 
     public function show(User $user)
     {
+        $previous = $user->previous();
+        $next = $user->next();
         $posts = $user->posts()->get();
         return view('users.show', [
             'user' => $user,
             'posts' => $posts,
+            'previous' => $previous,
+            'next' => $next,
         ]);
     }
 
@@ -70,7 +72,7 @@ class UserController extends Controller
         }
         $user->save();
 
-        Notification::toast('Profile updated successfully');
+        NotificationFacade::toast('Profile updated successfully');
         return redirect()->route('users.show', compact('user'));
     }
 
@@ -83,7 +85,7 @@ class UserController extends Controller
 
         $user->delete();
 
-        Notification::toast('Profile deleted successfully');
+        NotificationFacade::toast('Profile deleted successfully');
         return redirect()->route('users.index');
     }
 }

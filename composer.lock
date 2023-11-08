@@ -4,8 +4,84 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2fd290142037d696469cae2cbd17be5",
+    "content-hash": "06fa6047cfecbeee5c2e79d031c18dd5",
     "packages": [
+        {
+            "name": "bkwld/croppa",
+            "version": "6.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/BKWLD/croppa.git",
+                "reference": "ade55922a77817972df82f2f00be647ae6ffcbae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/BKWLD/croppa/zipball/ade55922a77817972df82f2f00be647ae6ffcbae",
+                "reference": "ade55922a77817972df82f2f00be647ae6ffcbae",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "illuminate/console": "^9.0|^10.0",
+                "illuminate/routing": "^9.0|^10.0",
+                "illuminate/support": "^9.0|^10.0",
+                "intervention/image": "^2.7",
+                "league/flysystem": "^3.0",
+                "php": "^8.0.2",
+                "symfony/http-foundation": "^6.0",
+                "symfony/http-kernel": "^6.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4.4",
+                "nunomaduro/larastan": "^2.0",
+                "orchestra/testbench": "^7.5",
+                "phpunit/phpunit": "^9.5.10"
+            },
+            "suggest": {
+                "ext-exif": "Required if you want to have Croppa auto-rotate images from devices like mobile phones based on exif meta data."
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Bkwld\\Croppa\\CroppaServiceProvider"
+                    ],
+                    "aliases": {
+                        "Croppa": "Bkwld\\Croppa\\Facades\\Croppa"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bkwld\\Croppa\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Robert Reinhard"
+                },
+                {
+                    "name": "Samuel De Backer"
+                }
+            ],
+            "description": "Image thumbnail creation through specially formatted URLs for Laravel",
+            "homepage": "https://github.com/bkwld/croppa",
+            "keywords": [
+                "image",
+                "laravel",
+                "resize",
+                "thumb"
+            ],
+            "support": {
+                "issues": "https://github.com/BKWLD/croppa/issues",
+                "source": "https://github.com/BKWLD/croppa/tree/6.0.2"
+            },
+            "time": "2023-03-20T19:02:41+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.11.0",
@@ -1049,6 +1125,90 @@
                 }
             ],
             "time": "2023-08-27T10:19:19+00:00"
+        },
+        {
+            "name": "intervention/image",
+            "version": "2.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Intervention/image.git",
+                "reference": "04be355f8d6734c826045d02a1079ad658322dad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/04be355f8d6734c826045d02a1079ad658322dad",
+                "reference": "04be355f8d6734c826045d02a1079ad658322dad",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "guzzlehttp/psr7": "~1.1 || ^2.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.2",
+                "phpunit/phpunit": "^4.8 || ^5.7 || ^7.5.15"
+            },
+            "suggest": {
+                "ext-gd": "to use GD library based image processing.",
+                "ext-imagick": "to use Imagick based image processing.",
+                "intervention/imagecache": "Caching extension for the Intervention Image library"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Intervention\\Image\\ImageServiceProvider"
+                    ],
+                    "aliases": {
+                        "Image": "Intervention\\Image\\Facades\\Image"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Intervention\\Image\\": "src/Intervention/Image"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliver Vogel",
+                    "email": "oliver@intervention.io",
+                    "homepage": "https://intervention.io/"
+                }
+            ],
+            "description": "Image handling and manipulation library with support for Laravel integration",
+            "homepage": "http://image.intervention.io/",
+            "keywords": [
+                "gd",
+                "image",
+                "imagick",
+                "laravel",
+                "thumbnail",
+                "watermark"
+            ],
+            "support": {
+                "issues": "https://github.com/Intervention/image/issues",
+                "source": "https://github.com/Intervention/image/tree/2.7.2"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/interventionio",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/Intervention",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-05-21T17:30:32+00:00"
         },
         {
             "name": "laravel/framework",

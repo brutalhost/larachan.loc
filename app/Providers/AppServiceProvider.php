@@ -2,12 +2,12 @@
 
 namespace App\Providers;
 
+use App\Facades\ImageFacade;
 use App\Http\Controllers\CartController;
 use App\Models\User;
-use App\Services\DataTableService;
+use App\Services\ImageService;
 use App\Services\MenuService;
 use App\Services\NotificationService;
-use App\Services\PaymentGateway;
 use Auth;
 use Closure;
 use Illuminate\Pagination\Paginator;
@@ -29,6 +29,10 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->singleton(MenuService::class, function ($app) {
             return new MenuService();
+        });
+
+        $this->app->bind(ImageService::class, function ($app) {
+            return new ImageService();
         });
     }
 

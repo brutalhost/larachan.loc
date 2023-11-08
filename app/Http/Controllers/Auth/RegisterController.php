@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Facades\Notification;
+use App\Facades\NotificationFacade;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
@@ -12,6 +12,7 @@ class RegisterController extends Controller
 {
     public function __construct()
     {
+        parent::__construct();
         $this->authorize('register', User::class);
     }
 
@@ -30,7 +31,7 @@ class RegisterController extends Controller
 
         $request->session()->regenerate();
 
-        Notification::toast('Register successful');
+        NotificationFacade::toast('Register successful');
         return redirect()->intended('/');
     }
 }

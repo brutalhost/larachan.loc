@@ -1,13 +1,12 @@
 <?php
 
-use App\Facades\DataTable;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
 return [
 
     'separator' => ' : : ',
-    'admin_id'  => 71,
+    'admin_id'  => 1,
 
     /*
     |--------------------------------------------------------------------------
@@ -187,8 +186,8 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
-        'payment-gateway' => App\Facades\PaymentGateway::class,
+        'Image' => App\Facades\ImageFacade::class,
+        'Notification' => App\Facades\NotificationFacade::class,
     ])->toArray(),
 
 ];

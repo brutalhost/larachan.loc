@@ -1,20 +1,10 @@
 <?php
 
-use App\Http\Controllers\Auth\EmailVerificationController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Resources\PostController;
-use App\Http\Controllers\Resources\ProductController;
-use App\Http\Controllers\Resources\UserController;
-use App\Models\User;
-use Illuminate\Auth\Events\PasswordReset;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +23,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('posts', PostController::class);
 Route::resource('users', UserController::class)->except(['create', 'store']);
-Route::resource('products', ProductController::class);
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/update/{productId}', [CartController::class, 'update'])->name('cart.update')->where('productId',

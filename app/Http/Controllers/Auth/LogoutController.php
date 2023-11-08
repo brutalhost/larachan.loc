@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Facades\Notification;
+use App\Facades\NotificationFacade;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,7 +22,7 @@ class LogoutController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        Notification::toast('Logout successful');
+        NotificationFacade::toast('Logout successful');
         return redirect()->route('home');
     }
 }

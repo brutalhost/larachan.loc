@@ -4,8 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Post;
 use App\Models\User;
-use DavidBadura\FakerMarkdownGenerator\FakerProvider;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class PostSeeder extends Seeder

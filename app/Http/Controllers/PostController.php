@@ -1,24 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\Resources;
+namespace App\Http\Controllers;
 
-use App;
-use App\Facades\DataTable;
-use App\Facades\Notification;
-use App\Http\Controllers\Controller;
-use App\Http\Middleware\Authenticate;
+use App\Facades\NotificationFacade;
 use App\Http\Requests\PostRequest;
 use App\Http\Requests\SearchRequest;
 use App\Models\Post;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 
 class PostController extends Controller
 {
     public function __construct()
     {
         parent::__construct();
+
+        $this->middleware('verified', [
+            'only' => [
+                'create',
+                'store'
+            ]
+        ]);
+
         $this->authorizeResource(Post::class, 'post');
     }
 
@@ -53,13 +55,19 @@ class PostController extends Controller
         $post->user_id = Auth::id();
         $post->save();
 
-        Notification::toast('Post created successfully.');
+        NotificationFacade::toast('Post created successfully.');
         return redirect()->route('posts.show', $post);
     }
 
     public function show(Post $post)
     {
-        return view('posts.show', compact('post'));
+        $previous = $post->previous();
+        $next = $post->next();
+        return view('posts.show', [
+            'post' => $post,
+            'previous' => $previous,
+            'next' => $next,
+        ]);
     }
 
     public function edit(Post $post)
@@ -74,7 +82,7 @@ class PostController extends Controller
         $post->fill($request->validated());
         $post->save();
 
-        Notification::toast('Post updated successfully.');
+        NotificationFacade::toast('Post updated successfully.');
         return redirect()->route('posts.show', $post);
     }
 
@@ -82,7 +90,7 @@ class PostController extends Controller
     {
         $post->delete();
 
-        Notification::toast('Post deleted successfully.');
+        NotificationFacade::toast('Post deleted successfully.');
         return redirect()->route('posts.index');
     }
 

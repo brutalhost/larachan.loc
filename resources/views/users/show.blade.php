@@ -3,7 +3,9 @@
 @section('content')
     <div class="columns">
         <div class="column col-4 col-sm-12">
-            <img class="img-responsive s-rounded" src="{{ asset('avatars/' . $user->avatar) }}" alt="{{ $user->name }} avatar">
+            <img class="img-responsive s-rounded"
+                 src="{{ Image::profileAvatarSize()->get('/storage/avatars/' . $user->avatar) }}"
+                 alt="{{ $user->name }} avatar">
         </div>
         <div class="column">
             <x-table>
@@ -39,12 +41,12 @@
                                     @csrf
                                     <button class="btn btn-primary" type="submit">Send verification link</button>
                                 </form>
-                            @else
+                                @else
                                 Not verified
                                 @endisOwner
-                                @else
-                                    {{ $user->email_verified_at  }}
-                                @endif
+                            @else
+                                {{ $user->email_verified_at  }}
+                            @endif
                         </td>
                     </tr>
                     @isAdminOrOwner($user)
@@ -64,6 +66,8 @@
             </x-table>
         </div>
     </div>
+
+    <x-siblings-pagination :$previous :$next/>
 
     <h2>Posts</h2>
     <x-table>

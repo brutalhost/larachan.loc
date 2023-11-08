@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Helpers;
 
 class MarkdownFormat
 {
-    static function replace_first_level_headers_to_second_level($string) {
+    static function replaceFirstLevelHeaders($string)
+    {
         return preg_replace('/(^|\n)#([^#\n]+)/', "\$1##\$2", $string);
     }
 

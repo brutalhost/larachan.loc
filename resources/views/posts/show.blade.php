@@ -2,14 +2,16 @@
 
 @section('content')
     <article>
-        <div >
+        <div>
             <h1>{{ $post->title }}</h1>
 
         </div>
-        <div >
+        <div>
             @markdown($post->content)
         </div>
     </article>
+
+    <x-siblings-pagination :$previous :$next/>
 
     <div class="bg-secondary p-1">
         <table class="table">

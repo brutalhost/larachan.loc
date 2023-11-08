@@ -41,6 +41,7 @@
                 </div>
             @endforeach
         </div>
+        <x-paginator :collection="$posts"></x-paginator>
     @else
         <div class="empty">
             <div class="empty-icon">
@@ -50,5 +51,4 @@
             <a href="{{ route('posts.index') }}" class="empty-subtitle">Return to list of all posts.</a>
         </div>
     @endif
-    <x-paginator :collection="$posts"></x-paginator>
 @endsection

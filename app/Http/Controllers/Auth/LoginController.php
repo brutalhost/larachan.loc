@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Facades\Notification;
+use App\Facades\NotificationFacade;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
-use App\Policies\AuthPolicy;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
     public function __construct()
     {
+        parent::__construct();
         $this->authorize('login', User::class);
     }
 
@@ -30,7 +30,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
 
-            Notification::toast('Login successful');
+            NotificationFacade::toast('Login successful');
             return redirect()->intended('/');
         }
 

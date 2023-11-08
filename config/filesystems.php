@@ -71,6 +71,7 @@ return [
 
     'auth-links.blade.php' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('avatars') => storage_path('app/public/avatars'),
     ],
 
 ];

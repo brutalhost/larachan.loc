@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use DavidBadura\FakerMarkdownGenerator\FakerProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
