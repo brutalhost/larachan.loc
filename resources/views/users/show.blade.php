@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', $user->name)
+
 @section('content')
     <div class="columns">
         <div class="column col-4 col-sm-12">

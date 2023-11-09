@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.no-header')
+
+@section('title', 'Posts')
 
 @section('content')
     <div class="columns">

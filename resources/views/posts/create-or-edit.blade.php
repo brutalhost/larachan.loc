@@ -1,6 +1,7 @@
 @extends('layouts.app')
+
 @php
-    $isEditingPage = Route::currentRouteNamed('posts.edit')
+    $isEditingPage = Route::currentRouteNamed('posts.edit');
 @endphp
 
 @section('title', $isEditingPage ? 'Edit ' . $post->title : 'Create Post')

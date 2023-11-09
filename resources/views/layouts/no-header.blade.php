@@ -3,10 +3,6 @@
     @include('partials.navbar')
 </div>
 <div class="container grid-md">
-    @if(View::hasSection('title') && !($hideHeader ?? false))
-        <h1>@yield('title')</h1>
-    @endif
-    {{--    <h1>@yield('title')</h1>--}}
     @yield('content')
 </div>
 @include('partials._footer')

@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.no-header')
+
+@section('title', 'Users')
 
 @section('content')
     <div class="columns">
@@ -30,7 +32,8 @@
             @slot('body')
                 @foreach($users as $user)
                     <tr class="tr__va-middle">
-                        <td><img class="avatar img-fit-cover" src="{{ Image::smallAvatarSize()->get('/storage/avatars/' . $user->avatar) }}"
+                        <td><img class="avatar img-fit-cover"
+                                 src="{{ Image::smallAvatarSize()->get('/storage/avatars/' . $user->avatar) }}"
                                  alt="{{ $user->name }} avatar"></td>
                         <td colspan="2">
                             <a href="{{ route('users.show', $user->username) }}"><b>{{ $user->username }}</b>
