@@ -1,14 +1,16 @@
+# Larachan
+
+Simple blog with CRUD operations, administrative account, email account confirmation, and action restriction if confirmation is not received.
 
 ## Installation
 
-- Add database
-- Run composer install
-- Add .env and configure
+- Run `composer install`
+- Add yout database to `.env`
 - `php artisan key:generate`
 - `php artisan storage:link`
 - `php artisan migrate --seed`
 - `php artisan db:seed --class Database\Seeders\DatabaseSeeder`
-- `npm i`
+- `npm install`
 - `npm run dev`
 
 By default, the first test user is administrator (`'admin_id' => 1` in /config/app.php). He can edit other people's accounts and posts, and can also post without verification.

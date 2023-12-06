@@ -5,7 +5,7 @@ use Illuminate\Support\ServiceProvider;
 
 return [
 
-    'separator' => ' : : ',
+    'separator' => ' - ',
     'admin_id'  => 1,
 
     /*
